@@ -10,6 +10,14 @@ var taskFormHandler = function(event) {
     listItemEl.className = "task-item";
     listItemEl.textContent = taskNameInput;
     
+    // check if input values are empty strings
+    if (!taskNameInput || !taskTypeInput) {
+        alert("You need to fill out the task form!");
+        return false;
+    }
+    // This erases the previous values that the user input to make the form more user friendly 
+    formEl.reset();
+ 
 // package up data as an object
 var taskDataObj = {
     name: taskNameInput,
@@ -44,6 +52,6 @@ tasksToDoEl.appendChild(listItemEl);
 formEl.addEventListener("submit", taskFormHandler); {
   var listItemEl = document.createElement("li");
   listItemEl.className = "task-item";
-  listItemEl.textContent = "This is a new task.";
+  listItemEl.textContent = "Example of a new task!";
   tasksToDoEl.appendChild(listItemEl);
 };
